@@ -1,0 +1,8 @@
+<div class="heros-container">
+  <div class="title">Tour of Heroes</div>
+  <div class="nav">
+    <div class="btn" routerLink="/dashboard" routerLinkActive="active">Dashboard</div><div class="btn" routerLink="/list" routerLinkActive="active">Heroes</div><div class="btn" routerLink="/editor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Hero editor</div>
+  </div>
+  <br/>
+  <router-outlet></router-outlet>
+</div>

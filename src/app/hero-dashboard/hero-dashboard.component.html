@@ -1,0 +1,37 @@
+<div>
+  <div class="header">Starred Heroes</div>
+  <br/>
+  <div
+    *ngIf="starredHeroes.length < 1"
+    class="no-starred-heroes"
+  >
+    You don't have any starred heroes, yet...
+  </div>
+  <div
+    *ngIf="starredHeroes.length >= 1"
+    class="starred-heroes"
+  >
+    <div
+      *ngFor="let hero of starredHeroes"
+      (click)="editHero(hero.id)"
+      class="hero"
+    >
+      <div class="name">
+        {{ hero.name }}
+      </div>
+      <div class="star-icon">
+        <svg
+          preserveAspectRatio="none"
+          class="star"
+          viewBox="0 0 30 30"
+          data-rating="1"
+        >
+          <polygon
+            points="15,0 4,28 30,10 0,10 26,28 15,0"
+            class="star-polygon"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

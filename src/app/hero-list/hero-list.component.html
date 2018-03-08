@@ -1,0 +1,43 @@
+<div>
+  <div class="header">My Heroes</div>
+  <br/>
+  <div class="hero-list">
+    <div
+      *ngFor="let hero of heroes"
+      class="hero"
+      [ngClass]="{ 'active': (selectedHero && hero.id === selectedHero.id) }"
+      (click)="selectHero(hero.id)"
+    >
+      <div class="id">{{ hero.id }}</div>
+      <div class="name">{{ hero.name }}
+      <div class="favorite">
+        <svg
+          *ngIf="hero.hasStar"
+          preserveAspectRatio="none"
+          class="star"
+          viewBox="0 0 30 30"
+          data-rating="1"
+        >
+          <polygon
+            points="15,0 4,28 30,10 0,10 26,28 15,0"
+            class="star-polygon"
+          />
+        </svg>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedHero">
+    <br/>
+    <span class="selected-hero">
+      {{ selectedHero.name | uppercase }} is my hero
+    </span>
+    <br/><br/>
+    <div
+      class="btn"
+      (click)="editSelectedHero()"
+    >
+      View Details
+    </div>
+  </div>
+</div>

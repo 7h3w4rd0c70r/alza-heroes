@@ -1,0 +1,51 @@
+<div>
+  <div
+    *ngIf="isDraft"
+    class="header"
+  >
+    New hero!
+  </div>
+  <div
+    *ngIf="!isDraft"
+    class="header"
+  >
+    {{ hero.name }} details!
+  </div>
+  <br/>
+  <div class="editor">
+    <div class="row">
+      <div class="label">id</div>
+      <div class="value">
+        <i *ngIf="isDraft">draft</i>
+        <span *ngIf="!isDraft">{{ hero.id }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <label for="hero-name" class="label">name</label>
+      <div class="value">
+        <input
+          id="hero-name"
+          placeholder="Hero name here"
+          [(ngModel)]="hero.name"
+        >
+      </div>
+    </div>
+    <div class="row">
+      <label for="hero-has-star" class="label">has star</label>
+      <div class="value">
+        <div class="star-checkbox">
+          <input
+            type="checkbox"
+            id="hero-has-star"
+            [(ngModel)]="hero.hasStar"
+          >
+          <label for="hero-has-star"></label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="align-right">
+    <div class="btn" (click)="save()">Save</div>
+    <div class="btn" (click)="goBack()">Back</div>
+  </div>
+</div>
