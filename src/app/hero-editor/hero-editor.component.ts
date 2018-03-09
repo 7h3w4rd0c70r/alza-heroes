@@ -45,9 +45,10 @@ export class HeroEditorComponent implements OnInit {
     this.hero = _.cloneDeep(this.heroesService.getEmptyHero());
   }
 
-  save() {
+  async save() {
     if (this.isDraft) {
-      this.heroesService.createHero(this.hero);
+      const hero = await this.heroesService.createHero(this.hero);
+      this.router.navigate(['editor', hero._id]);
       return;
     }
 

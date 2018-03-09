@@ -20,6 +20,7 @@ export class HeroListComponent implements OnInit {
   constructor(private router: Router, private heroesService: HeroesService) { }
 
   ngOnInit() {
+    this.heroesService.fetchHeroes();
     this.getHeroes();
     this.selectedHero = null;
   }
@@ -31,20 +32,20 @@ export class HeroListComponent implements OnInit {
   }
 
   selectHero(heroId) {
-    if (this.selectedHero && heroId === this.selectedHero.id) {
+    if (this.selectedHero && heroId === this.selectedHero._id) {
       this.selectedHero = null;
       return;
     }
 
     for (const i in this.heroes) {
-      if (this.heroes[i].id === heroId) {
+      if (this.heroes[i]._id === heroId) {
         this.selectedHero = this.heroes[i];
       }
     }
   }
 
   editSelectedHero() {
-    this.router.navigate(['editor', this.selectedHero.id]);
+    this.router.navigate(['editor', this.selectedHero._id]);
   }
 
 }
