@@ -20,7 +20,6 @@ export class HeroListComponent implements OnInit {
   constructor(private router: Router, private heroesService: HeroesService) { }
 
   ngOnInit() {
-    this.heroesService.fetchHeroes();
     this.getHeroes();
     this.selectedHero = null;
   }

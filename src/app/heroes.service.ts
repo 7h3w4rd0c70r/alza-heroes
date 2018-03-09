@@ -18,10 +18,15 @@ export class HeroesService {
     this.heroes = [];
   }
 
-  fetchHeroes() {
-    return this.http
-      .get<Hero[]>('http://localhost:8080/api/v1/heroes')
-      .subscribe((heroes: Hero[]) => this.heroes = heroes);
+  fetchHeroes(): Promise<Hero[]> {
+    return new Promise(resolve => {
+      this.http
+        .get<Hero[]>('http://localhost:8080/api/v1/heroes')
+        .subscribe((heroes: Hero[]) => {
+          this.heroes = heroes;
+          resolve(heroes);
+        });
+    });
   }
 
   getHeroes(): Observable<Hero[]> {

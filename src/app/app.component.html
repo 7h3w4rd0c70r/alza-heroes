@@ -4,5 +4,8 @@
     <div tabindex="null" class="btn" routerLink="/dashboard" routerLinkActive="active">Dashboard</div><div tabindex="null" class="btn" routerLink="/list" routerLinkActive="active">Heroes</div><div tabindex="null" class="btn" routerLink="/editor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Hero editor</div>
   </div>
   <br/>
-  <router-outlet></router-outlet>
+  <div *ngIf="isLoading">
+      Loading Heroes
+  </div>
+  <router-outlet *ngIf="!isLoading"></router-outlet>
 </div>
