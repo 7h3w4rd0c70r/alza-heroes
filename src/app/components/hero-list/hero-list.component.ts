@@ -1,33 +1,37 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/observable';
+import { Store } from '@ngrx/store';
 
 import {
   Hero,
+  HeroesState,
 } from '../../models';
-import { HeroesService } from '../heroes.service';
+import {
+  HEROES_ADD,
+} from '../../stores/heroes/heroes.actions';
 
 @Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
-  styleUrls: ['./hero-list.component.css']
+  styleUrls: ['./hero-list.component.css'],
 })
 export class HeroListComponent implements OnInit {
 
   heroes: Hero[];
   selectedHero: Hero;
 
-  constructor(private router: Router, private heroesService: HeroesService) { }
+  constructor(
+    private router: Router,
+    private store: Store<any>
+  ) { }
 
   ngOnInit() {
-    this.getHeroes();
     this.selectedHero = null;
-  }
-
-  getHeroes() {
-    this.heroesService
-      .getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+    this.store.select('heroes').subscribe(state => {
+      this.heroes = state.heroes;
+    });
   }
 
   selectHero(heroId) {

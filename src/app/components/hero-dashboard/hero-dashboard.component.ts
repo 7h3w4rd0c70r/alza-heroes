@@ -1,29 +1,30 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import {
   Hero,
 } from '../../models';
-import { HeroesService } from '../heroes.service';
 
 @Component({
   selector: 'app-hero-dashboard',
   templateUrl: './hero-dashboard.component.html',
-  styleUrls: ['./hero-dashboard.component.css']
+  styleUrls: ['./hero-dashboard.component.css'],
 })
 export class HeroDashboardComponent implements OnInit {
 
   starredHeroes: Hero[];
 
-  constructor(private router: Router, private heroesService: HeroesService) { }
+  constructor(
+    private store: Store<any>,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.getStarredHeroes();
-  }
-
-  getStarredHeroes() {
-    this.heroesService.getStarredHeroes().subscribe(starredHeroes => this.starredHeroes = starredHeroes);
+    this.store.select('heroes').subscribe(state => {
+      this.starredHeroes = state.heroes.filter(hero => hero.hasStar);
+    });
   }
 
   editHero(heroId) {

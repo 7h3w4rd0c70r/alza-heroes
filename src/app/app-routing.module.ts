@@ -5,9 +5,9 @@ import {
   Routes,
 } from '@angular/router';
 
-import { HeroDashboardComponent } from './hero-dashboard/hero-dashboard.component';
-import { HeroListComponent } from './hero-list/hero-list.component';
-import { HeroEditorComponent } from './hero-editor/hero-editor.component';
+import { HeroDashboardComponent } from './components/hero-dashboard/hero-dashboard.component';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { HeroEditorComponent } from './components/hero-editor/hero-editor.component';
 
 const routes: Routes = [{
   path: '',

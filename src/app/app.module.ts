@@ -3,18 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
-import { AppComponent } from './app.component';
-import { HeroEditorComponent } from './hero-editor/hero-editor.component';
-import { HeroListComponent } from './hero-list/hero-list.component';
-import { HeroDashboardComponent } from './hero-dashboard/hero-dashboard.component';
-
-import { HeroesService } from './heroes.service';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+import { RootComponent } from './components/root.component';
+import { HeroEditorComponent } from './components/hero-editor/hero-editor.component';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { HeroDashboardComponent } from './components/hero-dashboard/hero-dashboard.component';
+import { HeroesService } from './services/heroes.service';
+import { heroesReducer } from './stores/heroes/heroes.reducer';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    RootComponent,
     HeroEditorComponent,
     HeroListComponent,
     HeroDashboardComponent,
@@ -24,12 +26,15 @@ import { AppRoutingModule } from './/app-routing.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    StoreModule.forRoot({
+      heroes: heroesReducer,
+    }),
   ],
   providers: [
     HeroesService,
   ],
   bootstrap: [
-    AppComponent,
-  ]
+    RootComponent,
+  ],
 })
 export class AppModule { }

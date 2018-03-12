@@ -4,8 +4,17 @@
     <div tabindex="null" class="btn" routerLink="/dashboard" routerLinkActive="active">Dashboard</div><div tabindex="null" class="btn" routerLink="/list" routerLinkActive="active">Heroes</div><div tabindex="null" class="btn" routerLink="/editor" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Hero editor</div>
   </div>
   <br/>
-  <div *ngIf="isLoading">
-      Loading Heroes
+  <div
+    *ngIf="isLoading"
+    class="app-state-msg"
+  >
+    <i class="spinner loading icon"></i> Loading Heroes
   </div>
-  <router-outlet *ngIf="!isLoading"></router-outlet>
+  <div
+    *ngIf="isSaving"
+    class="app-state-msg"
+  >
+    Saving Hero
+  </div>
+  <router-outlet *ngIf="!(isLoading || isSaving)"></router-outlet>
 </div>
