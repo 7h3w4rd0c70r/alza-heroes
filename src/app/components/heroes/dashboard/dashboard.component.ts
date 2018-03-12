@@ -5,14 +5,14 @@ import { Store } from '@ngrx/store';
 
 import {
   Hero,
-} from '../../models';
+} from '../../../models';
 
 @Component({
-  selector: 'app-hero-dashboard',
-  templateUrl: './hero-dashboard.component.html',
-  styleUrls: ['./hero-dashboard.component.css'],
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
 })
-export class HeroDashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   starredHeroes: Hero[];
 

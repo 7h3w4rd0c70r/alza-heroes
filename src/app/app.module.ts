@@ -8,18 +8,18 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RootComponent } from './components/root.component';
-import { HeroEditorComponent } from './components/hero-editor/hero-editor.component';
-import { HeroListComponent } from './components/hero-list/hero-list.component';
-import { HeroDashboardComponent } from './components/hero-dashboard/hero-dashboard.component';
+import { EditorComponent } from './components/heroes/editor/editor.component';
+import { ListComponent } from './components/heroes/list/list.component';
+import { DashboardComponent } from './components/heroes/dashboard/dashboard.component';
 import { HeroesService } from './services/heroes.service';
 import { heroesReducer } from './stores/heroes/heroes.reducer';
 
 @NgModule({
   declarations: [
     RootComponent,
-    HeroEditorComponent,
-    HeroListComponent,
-    HeroDashboardComponent,
+    EditorComponent,
+    ListComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

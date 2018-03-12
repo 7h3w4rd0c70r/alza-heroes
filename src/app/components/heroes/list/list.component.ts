@@ -7,17 +7,17 @@ import { Store } from '@ngrx/store';
 import {
   Hero,
   HeroesState,
-} from '../../models';
+} from '../../../models';
 import {
   HEROES_ADD,
-} from '../../stores/heroes/heroes.actions';
+} from '../../../stores/heroes/heroes.actions';
 
 @Component({
-  selector: 'app-hero-list',
-  templateUrl: './hero-list.component.html',
-  styleUrls: ['./hero-list.component.css'],
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css'],
 })
-export class HeroListComponent implements OnInit {
+export class ListComponent implements OnInit {
 
   heroes: Hero[];
   selectedHero: Hero;

@@ -7,18 +7,18 @@ import * as _ from 'lodash';
 
 import {
   Hero,
-} from '../../models';
-import { HeroesService } from '../../services/heroes.service';
+} from '../../../models';
+import { HeroesService } from '../../../services/heroes.service';
 
 @Component({
-  selector: 'app-hero-editor',
-  templateUrl: './hero-editor.component.html',
+  selector: 'app-editor',
+  templateUrl: './editor.component.html',
   styleUrls: [
-    './hero-editor.component.css',
-    '../../styles/checkbox.css',
+    './editor.component.css',
+    '../../../styles/checkbox.css',
   ],
 })
-export class HeroEditorComponent implements OnInit {
+export class EditorComponent implements OnInit {
   heroId: number;
   hero: Hero;
   isDraft: boolean;
@@ -61,6 +61,11 @@ export class HeroEditorComponent implements OnInit {
   }
 
   async save() {
+
+    if (!_.isString(this.hero.name) || this.hero.name.length < 1) {
+      return alert('Hero has to have a name!');
+    }
+
     if (this.isDraft) {
       const newHeroId = await this.heroesService.createHero(this.hero);
       this.router.navigate(['editor', newHeroId]);

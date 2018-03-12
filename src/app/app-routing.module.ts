@@ -5,9 +5,9 @@ import {
   Routes,
 } from '@angular/router';
 
-import { HeroDashboardComponent } from './components/hero-dashboard/hero-dashboard.component';
-import { HeroListComponent } from './components/hero-list/hero-list.component';
-import { HeroEditorComponent } from './components/hero-editor/hero-editor.component';
+import { DashboardComponent } from './components/heroes/dashboard/dashboard.component';
+import { ListComponent } from './components/heroes/list/list.component';
+import { EditorComponent } from './components/heroes/editor/editor.component';
 
 const routes: Routes = [{
   path: '',
@@ -15,19 +15,19 @@ const routes: Routes = [{
   pathMatch: 'full',
 }, {
   path: 'dashboard',
-  component: HeroDashboardComponent,
+  component: DashboardComponent,
   pathMatch: 'full',
 }, {
   path: 'list',
-  component: HeroListComponent,
+  component: ListComponent,
   pathMatch: 'full',
 }, {
   path: 'editor',
-  component: HeroEditorComponent,
+  component: EditorComponent,
   pathMatch: 'full',
 }, {
   path: 'editor/:id',
-  component: HeroEditorComponent,
+  component: EditorComponent,
   pathMatch: 'full',
 }];
 

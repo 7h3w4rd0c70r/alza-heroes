@@ -26,9 +26,17 @@
     color: rgba(118,174,229,1);
 }
 
+.btn.active > .icon {
+    color: rgba(118,174,229,1) !important;
+}
+
 .btn:hover {
     color: rgba(118,174,229,1);
     background: rgba(0,0,0,.08);
+}
+
+.btn:hover > .icon {
+    color: rgba(118,174,229,1) !important;
 }
 
 .star {
