@@ -14,8 +14,8 @@ import { HeroesService } from '../../../services/heroes.service';
   selector: 'app-editor',
   templateUrl: './editor.component.html',
   styleUrls: [
-    './editor.component.css',
-    '../../../styles/checkbox.css',
+    './editor.component.less',
+    '../../../styles/checkbox.less',
   ],
 })
 export class EditorComponent implements OnInit {

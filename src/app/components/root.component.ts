@@ -8,7 +8,7 @@ import { HeroesService } from './../services/heroes.service';
 @Component({
   selector: 'app-root',
   templateUrl: './root.component.html',
-  styleUrls: ['./root.component.css'],
+  styleUrls: ['./root.component.less'],
 })
 export class RootComponent implements OnInit {
   isLoading: boolean;
